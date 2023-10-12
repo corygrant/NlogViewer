@@ -112,7 +112,7 @@ namespace NlogViewer
                 ItemAdded(this, (NLogEvent)log.LogEvent);
             }));
         }
-        public void Clear()
+        public void Clear(object obj, RoutedEventArgs e)
         {
             LogEntries.Clear();
         }

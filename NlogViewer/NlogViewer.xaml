@@ -45,7 +45,7 @@
                     <Setter Property="Foreground" Value="{Binding Foreground}"/>
                 </Trigger>
                 <Trigger Property="IsSelected" Value="True">
-                    <Setter Property="Background" Value="#252525"/>
+                    <Setter Property="Background" Value="{Binding BackgroundSelected}"/>
                     <Setter Property="Foreground" Value="White"/>
                 </Trigger>
                 <Trigger Property="IsMouseOver" Value="True">
@@ -57,6 +57,11 @@
     </UserControl.Resources>
     <Grid>
         <ListView ItemsSource="{Binding LogEntries}" Name="logView" ItemContainerStyle="{StaticResource ListViewItemStyle2}">
+            <ListView.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="Clear" Click="Clear"/>
+                </ContextMenu>
+            </ListView.ContextMenu>
             <ListView.View>
                 <GridView>
                     <GridView.Columns>

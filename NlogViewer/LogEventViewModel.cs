@@ -33,7 +33,19 @@ namespace NlogViewer
         public string ToolTip { get; private set; }
         public SolidColorBrush Background { get; private set; }
         public SolidColorBrush Foreground { get; private set; }
-        public SolidColorBrush BackgroundMouseOver { get; private set; }
+        public SolidColorBrush BackgroundMouseOver { 
+            get
+            {
+                return new SolidColorBrush(Color.FromRgb((byte)(Background.Color.R * 0.5), (byte)(Background.Color.G * 0.5),(byte)(Background.Color.B * 0.5)));
+            }
+        }
+        public SolidColorBrush BackgroundSelected
+        {
+            get
+            {
+                return new SolidColorBrush(Color.FromRgb((byte)(Background.Color.R * 0.3), (byte)(Background.Color.G * 0.3), (byte)(Background.Color.B * 0.3)));
+            }
+        }
         public SolidColorBrush ForegroundMouseOver { get; private set; }
 
         private void SetupColors(LogEventInfo logEventInfo)
